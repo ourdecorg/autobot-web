@@ -7,7 +7,8 @@ interface Props {
   errors: Record<string, string>;
 }
 
-const years = Array.from({ length: 20 }, (_, i) => 2024 - i);
+const currentYear = new Date().getFullYear();
+const years = Array.from({ length: 20 }, (_, i) => currentYear - i);
 
 export default function Step1Vehicle({ vehicle, setVehicle, errors }: Props) {
   const set = (field: keyof Vehicle, value: string | number) =>
