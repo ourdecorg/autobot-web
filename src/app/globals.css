@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap');
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1E3A5F;
+  --accent: #F4A261;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  direction: rtl;
+  font-family: 'Heebo', sans-serif;
+  background-color: #F8FAFC;
+}
+
+/* Map markers */
+.map-marker {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  border: 2px solid white;
+}
+
+.map-marker--home { border-color: #1E3A5F; }
+.map-marker--institute { border-color: #F4A261; }
+.map-marker--inspector { border-color: #8B5CF6; animation: markerPulse 1.5s infinite; }
+.map-marker--vehicle { border-color: #3B82F6; animation: markerPulse 1.5s infinite; }
+
+@keyframes markerPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+}
+
+/* Leaflet container */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.leaflet-control-zoom a {
+  direction: ltr;
+}
+
+/* Active booking pulse */
+@keyframes activePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-dot {
+  animation: activePulse 2s ease-in-out infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
